@@ -2,6 +2,11 @@ html {
     margin: 0;
 }
 
+.list-item {
+    text-align: left;
+    color: rgb(86, 84, 83)
+}
+
 * {
     margin: 0px;
     padding: 0px;

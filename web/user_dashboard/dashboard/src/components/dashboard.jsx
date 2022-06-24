@@ -80,32 +80,47 @@ class Dashboard extends React.Component {
 									}}>
 									<div className="column column-1">
 										<h4>How We Do It</h4>
-										<p />
+										<p>
+											We're leveraging sensor technology to determine LPG gas
+											usage as well as leakages in the cylinder. These values
+											and changes in state are notified to the user on the
+											website and through SMS. The user can thus take
+											appropriate measures such as booking a new cylinder on the
+											same website.
+										</p>
 									</div>
 									<div className="column">
 										<h4>Tips to Save Cooking Gas</h4>
 										<ul>
-											<li>
-												<i className="fa fa-angle-double-right" />
-												You can cook your dishes faster and use less gas at the
-												same time by covering the pans with a lid.
-											</li>
-											<li>
-												<i className="fa fa-angle-double-right" />
-												Go for ISI certified gas stoves as they are known to
-												save up to 15% on your LPG and cook more efficiently.
-											</li>
-											<li>
-												<i className="fa fa-angle-double-right" />
-												If the flame coming out from your burner looks orange,
-												yellow, or not so uniform, then there’s probably some
-												carbon deposit on it. Take a look and clean it up.
-											</li>
-											<li>
-												<i className="fa fa-angle-double-right" />
-												Set aside both a small and a larger-sized burner for
-												times when you want to cook quick or slow.
-											</li>
+											<div className="list-item">
+												<li>
+													<i className="fa fa-angle-double-right" />
+													You can cook your dishes faster and use less gas at
+													the same time by covering the pans with a lid.
+												</li>
+											</div>
+											<div className="list-item">
+												<li>
+													<i className="fa fa-angle-double-right" />
+													Go for ISI certified gas stoves as they are known to
+													save up to 15% on your LPG and cook more efficiently.
+												</li>
+											</div>
+											<div className="list-item">
+												<li>
+													<i className="fa fa-angle-double-right" />
+													If the flame coming out from your burner looks orange,
+													yellow, or not so uniform, then there’s probably some
+													carbon deposit on it. Take a look and clean it up.
+												</li>
+											</div>
+											<div className="list-item">
+												<li>
+													<i className="fa fa-angle-double-right" />
+													Set aside both a small and a larger-sized burner for
+													times when you want to cook quick or slow.
+												</li>
+											</div>
 										</ul>
 									</div>
 								</div>
