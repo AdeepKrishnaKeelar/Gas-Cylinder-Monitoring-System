@@ -1,6 +1,7 @@
 # GAS CYLINDER MONITORING SYSTEM - A Project
 
 1. Hardware Aspect of the Project - 
+
       **Hardware Requirements -**
          * Arduino Uno (Or any you can choose) 
          * Raspberry Pi 3B or higher.
