@@ -1,4 +1,5 @@
 #For the MQTT Client, install by the command sudo pip3 install paho.mqtt
+#To check the push messages, install Gotify-Server and the receiver app, include the IP address.
 import paho.mqtt.client as mqtt
 import time
 import serial
@@ -12,10 +13,11 @@ GasLeak_Flag = 0
 LowGas_Flag = 0
 EmergencyGas_Flag = 0
 
+#SMS Sending function
 def send_SMS():
     url = "https://www.fast2sms.com/dev/bulkV2"
     querystring = {
-        "authorization": "ImXyat19xoJfRqc0DABzeKVC4iuGQhEO5ZrdpvFL6YkNHwPTl8KtGIMrRvHofiPgzmB2xWVJXdShpUFu",
+        "authorization": "", #Make your account in Fast2SMS
         "message": "There's a gas leakage, please check it immediately",
         "language": "english",
         "route": "q",
@@ -32,6 +34,7 @@ def send_SMS():
         print("Failed!")
 
 
+#Function to send the push message
 def send_message():
     url = "http://192.168.72.253/message?token=AeZv7ML-pvR5nni"
     data = {
@@ -41,6 +44,7 @@ def send_message():
     requests.post(url,data)
 
 
+#Function to check for the gas leakage
 def readGasValue(GasReading):
     GasRealValue = int(re.search(r'\d+',GasReading).group(0))
     print(GasRealValue)
@@ -69,12 +73,12 @@ while True or GasLeak_Flag!=0:
         Gas_value=ser.readline().decode('utf-8').rstrip()
         Gas_value = Gas_value+" is the new gas reading"
         print(Gas_value)
+        #threaded calls for threads parallely running to process a gas-leak
         t1 = threading.Thread(target=readGasValue,args=(Gas_value,))
         t1.start()
         t1.join()
-        ser.flushInput()
+        ser.flushInput() #Flushing Serial Monitor
         weight=ser.readline().decode('utf-8').rstrip()
         print("Weight Value - "+weight)
         client.publish("CYLINDER WEIGHT",weight)
-        print("Value has been published!")
-
+        print("Value has been published!") #MQTT-Protocol publishing success message
